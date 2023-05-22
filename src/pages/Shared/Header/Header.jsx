@@ -3,6 +3,7 @@ import logo from '../../../assets/logo.png';
 import moment from 'moment';
 import { Button, Container, Nav, NavDropdown, Navbar } from 'react-bootstrap';
 import Marquee from "react-fast-marquee";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -24,10 +25,17 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
-                            <Nav.Link href="#home" className='fs-5 fw-bold'>Home</Nav.Link>
-                            <Nav.Link href="#about" className='fs-5 fw-bold'>About</Nav.Link>
-                            <Nav.Link href="#career" className='fs-5 fw-bold'>Career</Nav.Link>
+                            <Nav.Link><Link to='/' className='fs-5 fw-bold'>Home</Link></Nav.Link>
+
+                            <Nav.Link className='fs-5 fw-bold'>
+                                <Link to='/about'>About</Link>
+                            </Nav.Link>
+
+                            <Nav.Link className='fs-5 fw-bold'>
+                                <Link to='/career'>Career</Link>
+                            </Nav.Link>
                         </Nav>
+                        
                         <Nav className='d-flex align-items-center'>
                             <Nav.Link href="#profile">
                                 <img className='w-25' src="https://cdn-icons-png.flaticon.com/128/3135/3135715.png" alt="Profile Image" />
