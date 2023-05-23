@@ -4,11 +4,15 @@ import Footer from '../pages/Shared/Footer/Footer';
 import { Col, Container, Row } from 'react-bootstrap';
 import RightNav from '../pages/Shared/RightNav/RightNav';
 import { Outlet } from 'react-router-dom';
+import NavigationBar from '../pages/Shared/NavigationBar/NavigationBar';
 
 const NewsLayout = () => {
     return (
         <div>
             <Header></Header>
+
+            <NavigationBar></NavigationBar>
+
             <Container>
                 <Row>
                     {/* News Nav */}
