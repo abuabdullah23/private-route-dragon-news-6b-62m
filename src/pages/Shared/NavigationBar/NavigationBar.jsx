@@ -6,7 +6,14 @@ import { FaUserCircle } from 'react-icons/fa';
 
 const NavigationBar = () => {
 
-    const {user} = useContext(AuthContext); 
+    const { user, logOut } = useContext(AuthContext);
+
+    // for logOut
+    const handleLogOut = () => {
+        logOut()
+        .then()
+        .catch(error=>console.log(error));
+    }
 
     return (
         <Container className='mb-4'>
@@ -36,7 +43,7 @@ const NavigationBar = () => {
                             </Nav.Link>}
                             <Nav.Link eventKey={2} href='#login'>
                                 {user ?
-                                    <Button variant="light" className='fs-5 fw-bold'>Logout</Button> :
+                                    <Button onClick={handleLogOut} variant="light" className='fs-5 fw-bold'>Logout</Button> :
                                     <Link to='/login' ><Button variant="light" className='fs-5 fw-bold'>Login</Button></Link>
                                 }
                             </Nav.Link>
