@@ -3,10 +3,11 @@ import React from 'react';
 import { Card, Image } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { FaShareAlt, FaRegBookmark, FaEye, FaStar, FaStarHalf, FaRegStar } from 'react-icons/fa';
-import Rating from 'react-rating';
+import { Rating } from '@smastrom/react-rating';
+import '@smastrom/react-rating/style.css'
 
 const NewsCard = ({ news }) => {
-    const { _id, title, details, img, image_url, author, total_view, rating} = news;
+    const { _id, title, details, img, image_url, author, total_view, rating } = news;
     return (
         <Card className="text-left mb-3">
             <Card.Header>
@@ -36,15 +37,13 @@ const NewsCard = ({ news }) => {
                 </Card.Text>
             </Card.Body>
             <Card.Footer className="text-muted d-flex">
-                <div className='flex-grow-1'>
+                <div className='flex-grow-1 d-flex align-items-center gap-2'>
                     <Rating
-                        placeholderRating={rating.number}
-                        readonly
-                        emptySymbol={<FaRegStar></FaRegStar>}
-                        placeholderSymbol={<FaStar/>}
-                        fullSymbol={<FaStar/>}
+                        style={{ maxWidth: 120 }}
+                        value={Math.round(rating?.number)}
+                        readOnly
                     />
-                    <span> {rating?.number}</span>
+                    <span>{rating?.number}</span>
                 </div>
                 <div>
                     <FaEye /> {total_view}
